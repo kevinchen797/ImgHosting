@@ -1,0 +1,103 @@
+From 439ca188c0c64ea2fb71a1fc9ff62b59bcd9642a Mon Sep 17 00:00:00 2001
+From: chenmy0709 <chenmy0709@thundersoft.com>
+Date: Fri, 7 Jun 2024 10:40:45 +0800
+Subject: [PATCH] Hal Hello Selinux config
+
+Change-Id: I6cd44d9ca6d4a9e9ebe980b120bd9fd7f046971d
+---
+ build/soong/service_fuzzer_bindings.go      |  1 +
+ prebuilts/api/34.0/private/service_contexts |  1 +
+ private/service_contexts                    |  1 +
+ vendor/file_contexts                        |  1 +
+ vendor/hal_hello_default.te                 | 30 +++++++++++++++++++++
+ 5 files changed, 34 insertions(+)
+ create mode 100644 vendor/hal_hello_default.te
+
+diff --git a/build/soong/service_fuzzer_bindings.go b/build/soong/service_fuzzer_bindings.go
+index 0d0fa76f8..59d5607a0 100644
+--- a/build/soong/service_fuzzer_bindings.go
++++ b/build/soong/service_fuzzer_bindings.go
+@@ -68,6 +68,7 @@ var (
+ 		"android.hardware.input.processor.IInputProcessor/default":                EXCEPTION_NO_FUZZER,
+ 		"android.hardware.ir.IConsumerIr/default":                                 EXCEPTION_NO_FUZZER,
+ 		"android.hardware.light.ILights/default":                                  EXCEPTION_NO_FUZZER,
++		"android.hardware.hello.IHelloHal/default":                      		   EXCEPTION_NO_FUZZER,
+ 		"android.hardware.memtrack.IMemtrack/default":                             EXCEPTION_NO_FUZZER,
+ 		"android.hardware.net.nlinterceptor.IInterceptor/default":                 EXCEPTION_NO_FUZZER,
+ 		"android.hardware.nfc.INfc/default":                                       EXCEPTION_NO_FUZZER,
+diff --git a/prebuilts/api/34.0/private/service_contexts b/prebuilts/api/34.0/private/service_contexts
+index 3bb9c8502..71436e919 100644
+--- a/prebuilts/api/34.0/private/service_contexts
++++ b/prebuilts/api/34.0/private/service_contexts
+@@ -49,6 +49,7 @@ android.hardware.identity.IIdentityCredentialStore/default           u:object_r:
+ android.hardware.input.processor.IInputProcessor/default           u:object_r:hal_input_processor_service:s0
+ android.hardware.ir.IConsumerIr/default                              u:object_r:hal_ir_service:s0
+ android.hardware.light.ILights/default                               u:object_r:hal_light_service:s0
++android.hardware.hello.IHelloHal/default                  	         u:object_r:hal_hellohal_service:s0
+ android.hardware.memtrack.IMemtrack/default                          u:object_r:hal_memtrack_service:s0
+ android.hardware.net.nlinterceptor.IInterceptor/default              u:object_r:hal_nlinterceptor_service:s0
+ android.hardware.nfc.INfc/default                                    u:object_r:hal_nfc_service:s0
+diff --git a/private/service_contexts b/private/service_contexts
+index 3bb9c8502..71436e919 100644
+--- a/private/service_contexts
++++ b/private/service_contexts
+@@ -49,6 +49,7 @@ android.hardware.identity.IIdentityCredentialStore/default           u:object_r:
+ android.hardware.input.processor.IInputProcessor/default           u:object_r:hal_input_processor_service:s0
+ android.hardware.ir.IConsumerIr/default                              u:object_r:hal_ir_service:s0
+ android.hardware.light.ILights/default                               u:object_r:hal_light_service:s0
++android.hardware.hello.IHelloHal/default                  	         u:object_r:hal_hellohal_service:s0
+ android.hardware.memtrack.IMemtrack/default                          u:object_r:hal_memtrack_service:s0
+ android.hardware.net.nlinterceptor.IInterceptor/default              u:object_r:hal_nlinterceptor_service:s0
+ android.hardware.nfc.INfc/default                                    u:object_r:hal_nfc_service:s0
+diff --git a/vendor/file_contexts b/vendor/file_contexts
+index a2e460d27..50aa6968c 100644
+--- a/vendor/file_contexts
++++ b/vendor/file_contexts
+@@ -75,6 +75,7 @@
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service          u:object_r:hal_light_default_exec:s0
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service-lazy     u:object_r:hal_light_default_exec:s0
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.lights-service\.example     u:object_r:hal_light_default_exec:s0
++/(vendor|system/vendor)/bin/hw/android\.hardware\.hello\.example              u:object_r:hal_hellohal_default_exec:s0
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.lowpan@1\.0-service         u:object_r:hal_lowpan_default_exec:s0
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.memtrack@1\.0-service       u:object_r:hal_memtrack_default_exec:s0
+ /(vendor|system/vendor)/bin/hw/android\.hardware\.memtrack-service.example    u:object_r:hal_memtrack_default_exec:s0
+diff --git a/vendor/hal_hello_default.te b/vendor/hal_hello_default.te
+new file mode 100644
+index 000000000..600d115f1
+--- /dev/null
++++ b/vendor/hal_hello_default.te
+@@ -0,0 +1,30 @@
++# hal_attribute(xxx) 宏，定义hal服务相关的hal属性：hal_xxx, hal_xxx_client 和 hal_xxx_server 两种属性
++# 当新的Hal（服务）类型创建时，需要添加对应的HAL attributes
++hal_attribute(hellohal)
++
++# 进程对应的类型
++type hal_hellohal_default, domain;
++
++# 可执行文件对应的类型
++type hal_hellohal_default_exec, exec_type, vendor_file_type, file_type;
++
++#表示该程序如果从 init 进程启动 hal_hellohal_default_exec，其安全上下文的 domain 部分从 init 转化为 hal_hellohal_default
++init_daemon_domain(hal_hellohal_default)
++
++# 宏，将 domain 域和（hal_xxx_server ）属性关联
++hal_server_domain(hal_hellohal_default, hal_hellohal)
++# 宏，将domain域和（hal_xxx_client ）属性关联，system_server 作为 Hal服务客户端
++hal_client_domain(system_server, hal_hellohal)
++
++# 宏，允许server 和 client 之间进行通信
++binder_call(hal_hellohal_client, hal_hellohal_default)
++binder_call(hal_hellohal_default, hal_hellohal_client)
++
++type hal_hellohal_service, service_manager_type;
++
++# 宏，允许 hal_hellohal_default 域（或类型）的进程将 hal_hellohal_service 类型的服务添加到 service_manager
++add_service(hal_hellohal_default, hal_hellohal_service)
++
++
++allow hal_hellohal_client hal_hellohal_service:service_manager find;
++allow hal_hellohal_default servicemanager:binder { call transfer };
+\ No newline at end of file
+-- 
+2.25.1
+
