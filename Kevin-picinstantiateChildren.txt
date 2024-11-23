@@ -1,0 +1,77 @@
+07-24 15:34:00.265   580   580 D cmy     : addChild type=ANY
+07-24 15:34:00.265   580   580 D cmy     : child:name=HideDisplayCutout:0:14, mExisting=null, mSkipTokens=false
+07-24 15:34:00.265   580   580 D cmy     : addChild type=ANY
+07-24 15:34:00.265   580   580 D cmy     : child:name=OneHanded:0:14, mExisting=null, mSkipTokens=false
+07-24 15:34:00.265   580   580 D cmy     : addChild type=ANY
+07-24 15:34:00.266   580   580 D cmy     : child:name=FullscreenMagnification:0:12, mExisting=null, mSkipTokens=false
+07-24 15:34:00.266   580   580 D cmy     : addChild type=ANY
+07-24 15:34:00.266   580   580 D cmy     : child:name=leaf:0:1, mExisting=null, mSkipTokens=false
+07-24 15:34:00.266   580   580 D cmy     : addChild type=BELOW_TASKS
+07-24 15:34:00.266   580   580 D cmy     : child:name=leaf:2:2, mExisting=null, mSkipTokens=true
+07-24 15:34:00.266   580   580 D cmy     : child:name=leaf:2:2, mExisting=DefaultTaskDisplayArea@32095622, mSkipTokens=false
+07-24 15:34:00.266   580   580 D cmy     : addChild type=ANY
+07-24 15:34:00.267   580   580 D cmy     : child:name=leaf:3:12, mExisting=null, mSkipTokens=false
+07-24 15:34:00.267   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.267   580   580 D cmy     : child:name=ImePlaceholder:13:14, mExisting=null, mSkipTokens=false
+07-24 15:34:00.267   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.267   580   580 D cmy     : child:name=leaf:13:14, mExisting=ImeContainer@65582663, mSkipTokens=true
+07-24 15:34:00.267   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.267   580   580 D cmy     : child:name=OneHanded:15:15, mExisting=null, mSkipTokens=false
+07-24 15:34:00.267   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.267   580   580 D cmy     : child:name=FullscreenMagnification:15:15, mExisting=null, mSkipTokens=false
+07-24 15:34:00.267   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.267   580   580 D cmy     : child:name=leaf:15:15, mExisting=null, mSkipTokens=false
+07-24 15:34:00.267   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.268   580   580 D cmy     : child:name=HideDisplayCutout:16:16, mExisting=null, mSkipTokens=false
+07-24 15:34:00.268   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.268   580   580 D cmy     : child:name=OneHanded:16:16, mExisting=null, mSkipTokens=false
+07-24 15:34:00.268   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.268   580   580 D cmy     : child:name=FullscreenMagnification:16:16, mExisting=null, mSkipTokens=false
+07-24 15:34:00.268   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.268   580   580 D cmy     : child:name=leaf:16:16, mExisting=null, mSkipTokens=false
+07-24 15:34:00.268   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.269   580   580 D cmy     : child:name=OneHanded:17:17, mExisting=null, mSkipTokens=false
+07-24 15:34:00.269   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.269   580   580 D cmy     : child:name=FullscreenMagnification:17:17, mExisting=null, mSkipTokens=false
+07-24 15:34:00.269   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.269   580   580 D cmy     : child:name=leaf:17:17, mExisting=null, mSkipTokens=false
+07-24 15:34:00.269   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.269   580   580 D cmy     : child:name=HideDisplayCutout:18:23, mExisting=null, mSkipTokens=false
+07-24 15:34:00.269   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.270   580   580 D cmy     : child:name=OneHanded:18:23, mExisting=null, mSkipTokens=false
+07-24 15:34:00.270   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.271   580   580 D cmy     : child:name=FullscreenMagnification:18:23, mExisting=null, mSkipTokens=false
+07-24 15:34:00.272   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.272   580   580 D cmy     : child:name=leaf:18:23, mExisting=null, mSkipTokens=false
+07-24 15:34:00.273   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.273   580   580 D cmy     : child:name=leaf:24:25, mExisting=null, mSkipTokens=false
+07-24 15:34:00.273   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.273   580   580 D cmy     : child:name=HideDisplayCutout:26:31, mExisting=null, mSkipTokens=false
+07-24 15:34:00.273   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.274   580   580 D cmy     : child:name=OneHanded:26:31, mExisting=null, mSkipTokens=false
+07-24 15:34:00.274   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.274   580   580 D cmy     : child:name=FullscreenMagnification:26:27, mExisting=null, mSkipTokens=false
+07-24 15:34:00.274   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.274   580   580 D cmy     : child:name=leaf:26:27, mExisting=null, mSkipTokens=false
+07-24 15:34:00.274   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.274   580   580 D cmy     : child:name=leaf:28:28, mExisting=null, mSkipTokens=false
+07-24 15:34:00.274   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.275   580   580 D cmy     : child:name=FullscreenMagnification:29:31, mExisting=null, mSkipTokens=false
+07-24 15:34:00.275   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.275   580   580 D cmy     : child:name=leaf:29:31, mExisting=null, mSkipTokens=false
+07-24 15:34:00.275   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.275   580   580 D cmy     : child:name=HideDisplayCutout:32:35, mExisting=null, mSkipTokens=false
+07-24 15:34:00.275   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.275   580   580 D cmy     : child:name=OneHanded:32:32, mExisting=null, mSkipTokens=false
+07-24 15:34:00.275   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.275   580   580 D cmy     : child:name=leaf:32:32, mExisting=null, mSkipTokens=false
+07-24 15:34:00.275   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.275   580   580 D cmy     : child:name=FullscreenMagnification:33:33, mExisting=null, mSkipTokens=false
+07-24 15:34:00.276   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.276   580   580 D cmy     : child:name=leaf:33:33, mExisting=null, mSkipTokens=false
+07-24 15:34:00.276   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.276   580   580 D cmy     : child:name=OneHanded:34:35, mExisting=null, mSkipTokens=false
+07-24 15:34:00.276   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.276   580   580 D cmy     : child:name=FullscreenMagnification:34:35, mExisting=null, mSkipTokens=false
+07-24 15:34:00.276   580   580 D cmy     : addChild type=ABOVE_TASKS
+07-24 15:34:00.276   580   580 D cmy     : child:name=leaf:34:35, mExisting=null, mSkipTokens=false
