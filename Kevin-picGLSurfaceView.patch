@@ -1,0 +1,27 @@
+diff --git a/core/api/current.txt b/core/api/current.txt
+index 288ab479c0fb..7db1c9fae1a2 100644
+--- a/core/api/current.txt
++++ b/core/api/current.txt
+@@ -32298,6 +32298,7 @@ package android.opengl {
+     method public void onPause();
+     method public void onResume();
+     method public void queueEvent(Runnable);
++    method public void requestExitAndWait();
+     method public void requestRender();
+     method public void setDebugFlags(int);
+     method public void setEGLConfigChooser(android.opengl.GLSurfaceView.EGLConfigChooser);
+diff --git a/opengl/java/android/opengl/GLSurfaceView.java b/opengl/java/android/opengl/GLSurfaceView.java
+index 4738318472ea..e7e068668d60 100644
+--- a/opengl/java/android/opengl/GLSurfaceView.java
++++ b/opengl/java/android/opengl/GLSurfaceView.java
+@@ -602,6 +602,10 @@ public class GLSurfaceView extends SurfaceView implements SurfaceHolder.Callback
+         mGLThread.queueEvent(r);
+     }
+ 
++    public void requestExitAndWait() {
++        mGLThread.requestExitAndWait();
++    }
++
+     /**
+      * This method is used as part of the View class and is not normally
+      * called or subclassed by clients of GLSurfaceView.
