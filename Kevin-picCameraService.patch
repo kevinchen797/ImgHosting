@@ -1,0 +1,30 @@
+diff --git a/services/camera/libcameraservice/CameraService.cpp b/services/camera/libcameraservice/CameraService.cpp
+index 668a51ae6d..2ff93d7cb0 100644
+--- a/services/camera/libcameraservice/CameraService.cpp
++++ b/services/camera/libcameraservice/CameraService.cpp
+@@ -1796,10 +1796,21 @@ Status CameraService::connectDevice(
+     int callingPid = CameraThreadState::getCallingPid();
+     bool systemNativeClient = false;
+     if (doesClientHaveSystemUid() && (clientPackageNameAdj.size() == 0)) {
+-        std::string systemClient =
+-                StringPrintf("client.pid<%d>", CameraThreadState::getCallingPid());
+-        clientPackageNameAdj = String16(systemClient.c_str());
+-        systemNativeClient = true;
++        // For system-UID NDK clients, try to resolve a real package name first.
++        // System apps (e.g. sharedUserId="android.uid.system") using NDK send empty
++        // package names but still need AppOps tracking for onOpActiveChanged to work.
++        int packageUid = (clientUid == USE_CALLING_UID) ?
++            CameraThreadState::getCallingUid() : clientUid;
++        String16 resolvedName = getPackageNameFromUid(packageUid);
++        if (resolvedName.size() > 0) {
++            clientPackageNameAdj = resolvedName;
++            systemNativeClient = false;
++        } else {
++            std::string systemClient =
++                    StringPrintf("client.pid<%d>", CameraThreadState::getCallingPid());
++            clientPackageNameAdj = String16(systemClient.c_str());
++            systemNativeClient = true;
++        }
+     }
+ 
+     if (oomScoreOffset < 0) {
